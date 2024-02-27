@@ -139,7 +139,7 @@ section.resume-section {
 }
 
 .bg-primary {
-  background: linear-gradient(90deg, red, blue, green, yellow, red);
+  background: linear-gradient(90deg, white, blue);
   background-size: 500% 500%;
   animation: slide 5s linear infinite;
   border: 5px solid; /* Adjusted for a continuous border */
