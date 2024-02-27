@@ -133,16 +133,15 @@ section.resume-section {
   }
 }
 
-@keyframes slide {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 100% 50%; }
+@keyframes blue-white-border {
+  0%, 100% { border-color: blue; }
+  50% { border-color: white; }
 }
 
 .bg-primary {
-  background: linear-gradient(90deg, white, blue);
-  background-size: 500% 500%;
-  animation: slide 5s linear infinite;
+  background-color: #000080; /* Default background color set to blue */
   border: 5px solid; /* Adjusted for a continuous border */
+  animation: blue-white-border 2s infinite linear;
 }
 
 .text-primary {
