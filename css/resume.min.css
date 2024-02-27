@@ -133,17 +133,15 @@ section.resume-section {
   }
 }
 
-@keyframes rainbow-border {
-
+@keyframes blue-white-animation {
+  0%, 100% { border-color: blue; }
   50% { border-color: white; }
-  50% { border-color: blue; }
-
 }
 
 .bg-primary {
   background-color: #000080 !important;
   border: 5px solid; /* Set the width of the border */
-  animation: rainbow-border 2s infinite linear; /* Apply the animation */
+  animation: blue-white-animation 2s infinite linear; /* Apply the adjusted animation */
 }
 
 .text-primary {
