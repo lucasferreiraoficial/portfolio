@@ -6,7 +6,7 @@ const app = express();
 const port = 3000;
 
 // Configure a chave da API do OpenAI
-const openai = new OpenAI('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');
+const openai = new OpenAI('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');
 
 app.use(bodyParser.json());
 
