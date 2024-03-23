@@ -31,5 +31,6 @@ app.post('/ask', (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
+    console.log(`Server running at https://lucasftomaz.com.br:${port}`);
 });
+    
