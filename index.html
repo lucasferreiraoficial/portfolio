@@ -54,6 +54,9 @@
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#interests">Projetos</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#chat">Chat GPT</a>
+          </li>          
         </ul>
       </div>
     </nav>
@@ -234,8 +237,22 @@ Em um cenário onde a agilidade e eficiência na gestão de projetos e chamados 
 <p>A automatização entre o kanban de projetos e os chamados no GLPI representa um marco importante na busca por soluções que facilitam a gestão de TI. A equipe da Expresso Guanabara, liderada por Diego Almeida Carneiro demonstrou não apenas a capacidade de identificar e superar desafios mas também a habilidade de inovar, contribuindo assim para a evolução contínua das práticas de gestão de projetos e suporte em TI.</p>
 
 
+</div>
+</section>
+
+      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="chat">
+        <div class="my-auto">
+          <h2 class="mb-5">Chat GPT</h2>
+          <!-- Aqui vai o formulário de pergunta -->
+          <form id="questionForm">
+            <label for="question">Faça uma pergunta:</label>
+            <input type="text" id="question" name="question">
+            <button type="submit">Enviar</button>
+          </form>
+          <div id="answer"></div>
         </div>
       </section>
+      
 
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
@@ -246,6 +263,37 @@ Em um cenário onde a agilidade e eficiência na gestão de projetos e chamados 
 
     <!-- Custom scripts for this template -->
     <script src="js/resume.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+          // Capturar o envio do formulário
+          $('#questionForm').submit(function(event) {
+            // Impedir o comportamento padrão de envio do formulário
+            event.preventDefault();
+            
+            // Obter a pergunta digitada pelo usuário
+            var question = $('#questionInput').val();
+      
+            // Enviar a pergunta para o servidor Node.js para processamento
+            $.ajax({
+              type: 'POST',
+              url: 'http://127.0.0.1:3000/ask', // Substitua pelo URL correto se necessário
+              contentType: 'application/json',
+              data: JSON.stringify({ question: question }),
+              success: function(response) {
+                // Exibir a resposta retornada pelo OpenAI
+                $('#answer').text(response.answer);
+              },
+              error: function(xhr, status, error) {
+                console.error('Erro ao enviar pergunta:', error);
+                // Exibir uma mensagem de erro ao usuário, se necessário
+                $('#answer').text('Ocorreu um erro ao processar sua pergunta. Por favor, tente novamente.');
+              }
+            });
+          });
+        });
+      </script>
+    
 
   </body>
 
